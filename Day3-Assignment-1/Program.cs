@@ -12,7 +12,7 @@ AddressBook addressBook = new AddressBook();
         }
     Console.WriteLine("Enter details to add to contact");
     addressBook.AddContact();
-    Console.WriteLine("Enter E to stop and press any key  to continue");
+    Console.WriteLine("Enter E to stop and enter any key  to continue");
      if (Console.ReadLine() == "E")
         {
             stopFlag = true;
