@@ -1,4 +1,6 @@
 ﻿int balance = 100000;
+
+//checking credentials
 bool CheckCredentails()
 {
     bool credential = false;
@@ -13,6 +15,8 @@ bool CheckCredentails()
     }
     return credential;
 }
+
+//User Menu
 string Menu()
 {
     Console.WriteLine("Please choose one of the options");
@@ -23,6 +27,7 @@ string Menu()
     return Console.ReadLine();
 }
 
+//Operations for User
 void AtmOperations(string option)
 {
     switch (option)
@@ -44,6 +49,7 @@ void AtmOperations(string option)
             break;
     }
 }
+
 
 bool checkCredentail = CheckCredentails();
 if (checkCredentail)
