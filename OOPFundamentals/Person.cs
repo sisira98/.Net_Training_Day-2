@@ -1,18 +1,19 @@
-﻿
+﻿//immutable class
 public class Person
 
     //cunstructor
 {
-    public Person(string firstName, string lastName, int age)
+    public Person(string firstName, string lastName, int age, double salary)
     { 
         FirstName = firstName;
         LastName = lastName;
         Age = age;
+        _salary= salary;
     }
     //properties 
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public int Age { get; set; }
+    public string FirstName { get; }
+    public string LastName { get; }
+    public int Age { get; }
 
     //field
     private double _salary;
@@ -23,10 +24,10 @@ public class Person
         return _salary;
     }
 
-    public void SetSalary(double salary)
-    {
-        _salary = salary;
-    }
+    //public void setsalary(double salary)
+    //{
+    //    _salary = salary;
+    //}
 
     public string GetFullName()
     {
