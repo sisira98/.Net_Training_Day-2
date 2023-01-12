@@ -1,7 +1,4 @@
 ﻿
-using System.Collections.Generic;
-using System;
-
 public class Deck 
 {
     private List<Card> _deck;

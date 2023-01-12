@@ -1,4 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
 Deck deck= new Deck();
 Console.WriteLine("Print a deck");
 deck.GetDeck();
