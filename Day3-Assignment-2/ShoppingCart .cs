@@ -19,7 +19,6 @@ public class ShoppingCart
             Console.WriteLine($"Order Deatils: Name :  {shopping.Name}, Quantity : {shopping.Quantity}, Price : ${shopping.Price}");
         }
         Order r = new Order(cartList);
-        Console.WriteLine("Total price of all items");
         r.GetTotalPrice();
 
     }

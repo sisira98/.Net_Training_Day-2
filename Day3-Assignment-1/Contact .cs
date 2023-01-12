@@ -1,5 +1,5 @@
 ﻿
-    public class Contact
+    public record Contact
     {
     public Contact(string firstName, string lastName, long phone, string email)
     {

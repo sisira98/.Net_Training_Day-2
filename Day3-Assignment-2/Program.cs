@@ -1,6 +1,4 @@
 ﻿
-using System;
-
 string name = string.Empty;
 int quantity = 0;
 int price = 0;
