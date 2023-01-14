@@ -2,7 +2,6 @@
 public class Deck 
 {
     private List<Card> _deck;
-    //private List<string> _deckList;
     string suits = string.Empty;
     string ranks = string.Empty;
     
