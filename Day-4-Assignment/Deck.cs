@@ -1,60 +1,62 @@
 ﻿
+
 public class Deck 
 {
-    private List<Card> _deck;
-    string suits = string.Empty;
-    string ranks = string.Empty;
-    
-     List<string> _deckList = new List<string>();
-    public void GetDeck()
+    private List<Card> _deck = new List<Card>(52);
+    private static readonly Random Random = new Random();
+
+    static Deck()
     {
-        List<Card> _deck = new List<Card>();
-
-
-
-        foreach (var suit in Enum.GetValues(typeof(Suit)).Cast<Suit>())
-            {
-            suits = suit.ToString();
-                foreach (var rank in Enum.GetValues(typeof(Rank)).Cast<Rank>())
-                {
-                ranks = rank.ToString();
-                 _deck.Add(new Card(rank, suit));
-                _deckList.Add($"{suits + " of " + ranks}");
-                Console.WriteLine($"{suits + " of " + ranks}");
-
-            }
-            }
-
+        Ranks = Enumerable.Range(2, 9)
+            .Select(n => n.ToString())
+            .ToList();
+        Ranks.AddRange(new[] { "J", "Q", "K", "A" });
     }
-    public void PrintCard()
+    public Deck()
     {
-        foreach (string card in _deckList)
-        {
-            Console.WriteLine(card);
-            break;
-        }
-    }
-    public void PickRandomCard()
-    {
-        var random = new Random();
-        int index = random.Next(_deckList.Count);
-        Console.WriteLine(_deckList[index]);
-    }public void ShuffleDuck()
-    {
-        List<string> suffliedList = new List<string>();
-        for (int i = 0; i < _deckList.Count; i++)
-        {
-            var random = new Random();
-            int index = random.Next(_deckList.Count);
-            suffliedList.Add(_deckList[index]);
-            foreach (string card in suffliedList)
-            {
-                Console.WriteLine(card);
+        var suites = Enum.GetValues<Suite>();
+        
 
+        foreach (var t in suites)
+        {
+            foreach (var r in Ranks)
+            {
+                _deck.Add(new Card(r, t));
             }
         }
 
     }
-    
+    public void PrintCards()
+    {
+        foreach(Card card in _deck)
+        {
+            Console.WriteLine(card.ToString());
+        }
+
+    }
+    public List<Card> Cards => _deck;
+    public static List<string> Ranks { get; }
+    public Card PickRandomCard()
+    {
+
+        return _deck[Random.Next(_deck.Count)];
+    }
+    public void ShuffleDuck()
+    {
+        // Fischer-Yates shuffle algorithm
+        var n = _deck.Count;
+        while (n > 1)
+        {
+            n--;
+            var k = Random.Next(n + 1);
+            (_deck[k], _deck[n]) = (_deck[n], _deck[k]);
+        }
+
+    }
+    public void SortDeck()
+    {
+        _deck.Sort(new CardComparator());
+    }
+
 }
 

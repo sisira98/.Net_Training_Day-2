@@ -7,20 +7,14 @@ public class ExpenseAnalyzer
     private readonly List<Statement> _statement = new List<Statement>();
     public ExpenseAnalyzer()
     {
-        DateTime date;
-        double money;
-        string category;
         var logFile = File.ReadAllLines("C:\\Users\\EDSTEM\\source\\Day2\\Day5-Assignment\\TextFile1.txt");
         List<string> logList = new List<string>(logFile);
         foreach (string item in logList)
         {
             string[] list = item.Split(",");
-
             _statement.Add(new Statement(DateTime.Parse(list[0]), double.Parse(list[1]), list[2]));
-
-
         }
-        
+
     }
     public void Balance()
     {
@@ -51,10 +45,6 @@ public class ExpenseAnalyzer
             totalNetBalance = 0.0;
         }
     }
-
-
-
-
 
 }
 
