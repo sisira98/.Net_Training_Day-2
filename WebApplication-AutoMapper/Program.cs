@@ -2,7 +2,9 @@ using WebApplication_AutoMapper.Data;
 using WebApplication_AutoMapper.Services;
 using WebApplication_AutoMapper.Services.Impl;
 using Microsoft.EntityFrameworkCore;
-using WebApplication_AutoMapper.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +20,24 @@ builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
+
+builder.Services
+    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters()
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])
+            )
+        };
+    });
 
 var app = builder.Build();
 
@@ -40,7 +60,9 @@ using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>(
 
 app.UseHttpsRedirection();
 app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
+
 
 app.UseEndpoints(endpoints =>
 {

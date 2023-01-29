@@ -17,9 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day-4-Assignment", "Day-4-A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day5-Assignment", "Day5-Assignment\Day5-Assignment.csproj", "{9F632BDD-E864-4533-B62B-77E620FDE8EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication-AutoMapper", "WebApplication-AutoMapper\WebApplication-AutoMapper.csproj", "{4D91C61C-DD13-44E6-9471-0B48EF0D2BDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication-AutoMapper", "WebApplication-AutoMapper\WebApplication-AutoMapper.csproj", "{4D91C61C-DD13-44E6-9471-0B48EF0D2BDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostgrelDBConnection", "PostgrelDBConnection\PostgrelDBConnection.csproj", "{FCB21CF8-2FD8-4D56-8B6B-F2D06373D4B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostgrelDBConnection", "PostgrelDBConnection\PostgrelDBConnection.csproj", "{FCB21CF8-2FD8-4D56-8B6B-F2D06373D4B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityAPI", "IdentityAPI\IdentityAPI.csproj", "{94683796-D716-4566-A8A4-4C7B7B0D7EF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{FCB21CF8-2FD8-4D56-8B6B-F2D06373D4B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCB21CF8-2FD8-4D56-8B6B-F2D06373D4B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCB21CF8-2FD8-4D56-8B6B-F2D06373D4B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94683796-D716-4566-A8A4-4C7B7B0D7EF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94683796-D716-4566-A8A4-4C7B7B0D7EF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94683796-D716-4566-A8A4-4C7B7B0D7EF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94683796-D716-4566-A8A4-4C7B7B0D7EF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

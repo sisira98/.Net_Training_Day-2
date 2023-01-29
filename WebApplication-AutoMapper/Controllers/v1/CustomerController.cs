@@ -4,6 +4,7 @@ using WebApplication_AutoMapper.Contracts.v1.Response;
 using WebApplication_AutoMapper.Contracts.v1.Requests;
 using WebApplication_AutoMapper.Domain;
 using WebApplication_AutoMapper.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApplication_AutoMapper.Controllers.v1;
 
@@ -19,6 +20,7 @@ public class CustomerController : Controller
     }
 
     [HttpGet("/api/v1/customers")]
+    [Authorize]
     public async Task<IActionResult> GetAll()
     {
         var customers = await _customerService.GetCustomersAsync();
